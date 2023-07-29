@@ -31,8 +31,12 @@ app.use(
   }),
 )
 app.use(cors())
-app.use(express.static(path.join(__dirname, './dist/crud-app')));
-app.use('/', express.static(path.join(__dirname, './dist/crud-app')))
+app.get("/",(req,res) => {
+  res.setHeader("Access-Control-Allow-Credentials","true");
+  res.send("API is running..");
+});
+// app.use(express.static(path.join(__dirname, './dist/crud-app')));
+// app.use('/', express.static(path.join(__dirname, './dist/crud-app')))
 app.use('/api', employeeRoute)
 // default file
 app.get('**',(req,res) => {
