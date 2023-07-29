@@ -28,7 +28,7 @@ app.use(
 )
 app.use(cors())
 app.get("/",(req,res) => {
-  res.setHeader("Access-Control-Allow-Credentials","true");
+  res.setHeader("Access-Control-Allow-Origin","*");
   res.send("API is running..");
 });
 // app.use(express.static(path.join(__dirname, './dist/crud-app')));
