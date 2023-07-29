@@ -1,3 +1,3 @@
 module.exports = {
-	db: 'mongodb://localhost:27017/employeeDetails'
+	db: 'mongodb+srv://malagerevanasiddha:revanu123@cluster0.hg9quwd.mongodb.net'
 };
