@@ -32,9 +32,10 @@ employeeRoute.route('/update/:id').put((req, res, next) => {
   const employee = Employee.findByIdAndUpdate(req.params.id, {
     $set: req.body
   })
-  employee.then(data => {
-    res.json(data)
-    console.log('Data updated successfully')
+  employee.then((data) => {
+    res.send({message:'Employee Updated Successfully'});
+  }).catch((error) =>{
+    res.status(400).send('Something Went Wrong');
   })
 })
 // Delete employee
