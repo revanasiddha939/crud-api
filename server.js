@@ -5,7 +5,6 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const dbConfig = require('./database/db');
 // MongoDB Database url
-var mongoDatabase = 'mongodb://localhost:27017/employeeDetails';
 
 // Connect Mongodb Database
 mongoose.Promise = global.Promise;
@@ -22,7 +21,7 @@ mongoose.connect(dbConfig.db,{
 );
 
 // Setting up port with express js
-const employeeRoute = require('../backend/routes/employee.route')
+const employeeRoute = require('./backend/routes/employee.route')
 const app = express()
 app.use(bodyParser.json())
 app.use(
@@ -39,9 +38,9 @@ app.get("/",(req,res) => {
 // app.use('/', express.static(path.join(__dirname, './dist/crud-app')))
 app.use('/api', employeeRoute)
 // default file
-app.get('**',(req,res) => {
-  res.sendFile(path.join(__dirname,'./dist/crud-app/index.html'));
-});
+// app.get('**',(req,res) => {
+//   res.sendFile(path.join(__dirname,'./dist/crud-app/index.html'));
+// });
 // Create port
 const port = process.env.PORT || 3000
 const server = app.listen(port, () => {
