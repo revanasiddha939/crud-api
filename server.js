@@ -8,10 +8,7 @@ const dbConfig = require('./database/db');
 
 // Connect Mongodb Database
 mongoose.Promise = global.Promise;
-mongoose.connect(dbConfig.db,{
-    family: 4,
-  useNewUrlParser: true
-}).then(
+mongoose.connect(dbConfig.db).then(
 	  () => {
 		console.log('Database is connected')
 	  },
